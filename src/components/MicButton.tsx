@@ -17,7 +17,7 @@ type AnySpeechRecognition = {
 export function MicButton({ onTranscript, lang = "si-LK" }: { onTranscript: (t: string) => void; lang?: string }) {
   const [active, setActive] = useState(false);
   const [supported, setSupported] = useState(true);
-  const recRef = useRef<ReturnType<AnySpeechRecognition["prototype"]["start"]> extends infer _ ? any : never>(null);
+  const recRef = useRef<{ stop: () => void } | null>(null);
 
   useEffect(() => {
     const w = window as unknown as { SpeechRecognition?: AnySpeechRecognition; webkitSpeechRecognition?: AnySpeechRecognition };
