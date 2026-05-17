@@ -10,6 +10,8 @@ import { AccountPanel } from "./AccountPanel";
 import { supabase } from "@/integrations/supabase/client";
 
 export function Converter() {
+  const smartEngine = new SmartLearningEngine();  // ← Add this line here
+  
   const { mode } = useApp();
   const { user } = useAuth();
   const [input, setInput] = useState("");
