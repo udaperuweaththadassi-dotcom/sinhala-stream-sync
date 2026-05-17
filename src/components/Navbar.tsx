@@ -1,9 +1,11 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Moon, Sun, Zap } from "lucide-react";
+import { LogIn, LogOut, Moon, Sun, Zap } from "lucide-react";
 import { useApp } from "@/lib/app-context";
+import { useAuth } from "@/lib/auth-context";
 
 export function Navbar() {
   const { theme, setTheme, mode, setMode } = useApp();
+  const { user, signOut } = useAuth();
   const path = useRouterState({ select: (s) => s.location.pathname });
   const isMobileRoute = path.startsWith("/m/");
   if (isMobileRoute) return null;
@@ -20,14 +22,13 @@ export function Navbar() {
 
         <nav className="hidden md:flex items-center gap-5 text-sm text-muted-foreground">
           <Link to="/" activeOptions={{ exact: true }} className="hover:text-foreground transition" activeProps={{ className: "text-foreground" }}>Converter</Link>
-          <Link to="/sync" className="hover:text-foreground transition" activeProps={{ className: "text-foreground" }}>Mobile Sync</Link>
+          <Link to="/faq" className="hover:text-foreground transition" activeProps={{ className: "text-foreground" }}>FAQ</Link>
           <Link to="/about" className="hover:text-foreground transition">About</Link>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Mode toggle */}
-          <label className="flex items-center gap-2 text-xs sm:text-sm select-none">
-            <span className="text-muted-foreground hidden sm:inline">Output Type</span>
+          <label className="hidden sm:flex items-center gap-2 text-xs sm:text-sm select-none">
             <div
               role="switch"
               aria-checked={mode === "legacy"}
@@ -56,6 +57,20 @@ export function Navbar() {
           >
             {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
+
+          {user ? (
+            <button onClick={signOut}
+              className="inline-flex items-center gap-1.5 text-xs px-3 py-2 rounded-md border border-border hover:bg-accent/30"
+              title={user.email ?? "Sign out"}>
+              <LogOut className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Sign out</span>
+            </button>
+          ) : (
+            <Link to="/login"
+              className="inline-flex items-center gap-1.5 text-xs px-3 py-2 rounded-md font-semibold text-primary-foreground"
+              style={{ background: "linear-gradient(135deg, var(--neon-cyan), var(--neon-purple))" }}>
+              <LogIn className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Sign in</span>
+            </Link>
+          )}
         </div>
       </div>
     </header>

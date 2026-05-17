@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Send, Pencil, Zap } from "lucide-react";
+import { Send, Zap, Trash2 } from "lucide-react";
 import { processConversion } from "@/lib/sinhala";
 import { MicButton } from "@/components/MicButton";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,99 +8,95 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/m/$sessionId")({
   head: () => ({
     meta: [
-      { title: "Sintype.lk Mobile Sync" },
+      { title: "Sintype.lk · Mobile Input" },
       { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" },
+      { name: "robots", content: "noindex" },
     ],
   }),
   component: MobilePage,
 });
 
-interface Msg { id: string; text: string; }
-
 function MobilePage() {
   const { sessionId } = Route.useParams();
   const [draft, setDraft] = useState("");
-  const [messages, setMessages] = useState<Msg[]>([]);
-  const [editingId, setEditingId] = useState<string | null>(null);
+  const [status, setStatus] = useState<"connecting" | "live" | "error">("connecting");
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
+  const sinhala = processConversion(draft, "unicode");
+  const sinhalaRef = useRef(sinhala);
+  sinhalaRef.current = sinhala;
 
   useEffect(() => {
     const ch = supabase.channel(`sintype:${sessionId}`, { config: { broadcast: { self: false } } });
-    ch.subscribe();
+    ch.subscribe((s) => {
+      if (s === "SUBSCRIBED") setStatus("live");
+      else if (s === "CHANNEL_ERROR" || s === "TIMED_OUT") setStatus("error");
+    });
     channelRef.current = ch;
     return () => { ch.unsubscribe(); };
   }, [sessionId]);
 
-  const sinhala = processConversion(draft, "unicode");
+  // Stream the converted Sinhala straight into the desktop input on every change (debounced).
+  useEffect(() => {
+    if (status !== "live") return;
+    const id = setTimeout(() => {
+      channelRef.current?.send({ type: "broadcast", event: "set", payload: { text: sinhalaRef.current } });
+    }, 120);
+    return () => clearTimeout(id);
+  }, [sinhala, status]);
 
-  const send = () => {
-    if (!sinhala.trim()) return;
-    if (editingId) {
-      setMessages((m) => m.map((x) => (x.id === editingId ? { ...x, text: sinhala } : x)));
-      setEditingId(null);
-    } else {
-      setMessages((m) => [...m, { id: crypto.randomUUID(), text: sinhala }]);
-    }
-    channelRef.current?.send({ type: "broadcast", event: "msg", payload: { text: sinhala } });
-    setDraft("");
+  const sendNow = () => {
+    channelRef.current?.send({ type: "broadcast", event: "set", payload: { text: sinhala } });
   };
 
-  const startEdit = (m: Msg) => {
-    setDraft(m.text);
-    setEditingId(m.id);
+  const clearBoth = () => {
+    setDraft("");
+    channelRef.current?.send({ type: "broadcast", event: "set", payload: { text: "" } });
   };
 
   return (
     <div className="flex flex-col h-[100dvh] bg-background">
       <header className="sticky top-0 z-10 px-4 py-3 border-b border-border bg-card/80 backdrop-blur flex items-center gap-3">
         <Zap className="w-5 h-5 text-[var(--neon-cyan)] logo-glow" />
-        <div className="flex-1">
-          <h1 className="font-display font-bold tracking-wider neon-text text-lg">Sintype.lk Mobile Sync</h1>
-          <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Session · {sessionId}</p>
+        <div className="flex-1 min-w-0">
+          <h1 className="font-display font-bold tracking-wider neon-text text-lg">Sintype.lk · Mobile</h1>
+          <p className="text-[10px] text-muted-foreground uppercase tracking-widest truncate">
+            {status === "live" ? "Live · streaming to desktop" : status === "connecting" ? "Connecting…" : "Connection error"}
+          </p>
         </div>
+        <button onClick={clearBoth} className="p-2 rounded-md border border-border" aria-label="Clear">
+          <Trash2 className="w-4 h-4" />
+        </button>
       </header>
 
-      <main className="flex-1 overflow-y-auto px-3 py-4 space-y-2">
-        {messages.length === 0 && (
-          <p className="text-center text-sm text-muted-foreground mt-10">Send your first message — it lands on the desktop instantly.</p>
-        )}
-        {messages.map((m) => (
-          <button
-            key={m.id}
-            onClick={() => startEdit(m)}
-            className="block ml-auto max-w-[80%] text-left p-3 rounded-2xl rounded-tr-sm bubble-out"
-          >
-            <p className="text-base leading-snug break-words">{m.text}</p>
-            <span className="mt-1 flex items-center gap-1 text-[10px] text-muted-foreground"><Pencil className="w-3 h-3" /> tap to edit</span>
-          </button>
-        ))}
+      <main className="flex-1 overflow-y-auto px-4 py-4">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Live preview (desktop is mirroring this)</p>
+        <div className="min-h-[40vh] p-4 rounded-xl bg-card border border-border text-lg leading-relaxed whitespace-pre-wrap break-words">
+          {sinhala || <span className="text-muted-foreground text-sm">Start typing or speaking below…</span>}
+        </div>
       </main>
 
       <footer className="sticky bottom-0 px-3 py-3 border-t border-border bg-card/90 backdrop-blur">
-        {draft && (
-          <div className="mb-2 text-xs text-muted-foreground">
-            Preview: <span className="text-foreground">{sinhala}</span>
-            {editingId && <span className="ml-2 text-[var(--neon-cyan)]">editing…</span>}
-          </div>
-        )}
         <div className="flex items-end gap-2">
           <textarea
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Type Singlish or Sinhala…"
-            rows={1}
-            className="flex-1 min-h-[44px] max-h-32 px-3 py-3 rounded-2xl bg-secondary text-base outline-none resize-none"
+            rows={2}
+            className="flex-1 min-h-[56px] max-h-40 px-3 py-3 rounded-2xl bg-secondary text-base outline-none resize-none"
           />
           <MicButton onTranscript={(t) => setDraft((d) => (d ? d + " " : "") + t)} />
           <button
-            onClick={send}
+            onClick={sendNow}
             className="p-3 rounded-full"
             style={{ background: "linear-gradient(135deg, var(--neon-cyan), var(--neon-purple))" }}
-            aria-label="Send"
+            aria-label="Push to desktop"
           >
             <Send className="w-5 h-5 text-primary-foreground" />
           </button>
         </div>
+        <p className="mt-2 text-[10px] text-muted-foreground text-center">
+          Each keystroke streams automatically — Send forces an instant push.
+        </p>
       </footer>
     </div>
   );

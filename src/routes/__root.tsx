@@ -11,6 +11,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { AppProvider } from "@/lib/app-context";
+import { AuthProvider } from "@/lib/auth-context";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -105,11 +106,13 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <AppProvider>
-        <Layout>
-          <Outlet />
-        </Layout>
-      </AppProvider>
+      <AuthProvider>
+        <AppProvider>
+          <Layout>
+            <Outlet />
+          </Layout>
+        </AppProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
