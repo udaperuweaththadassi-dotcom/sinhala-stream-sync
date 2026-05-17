@@ -7,6 +7,7 @@ export function Footer() {
         <p className="font-display tracking-wider">© {new Date().getFullYear()} Sintype.lk · Sinhala typing reimagined</p>
         <nav className="flex flex-wrap gap-5">
           <Link to="/about" className="hover:text-foreground">About</Link>
+          <Link to="/faq" className="hover:text-foreground">FAQ</Link>
           <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
           <Link to="/terms" className="hover:text-foreground">Terms</Link>
           <Link to="/contact" className="hover:text-foreground">Contact</Link>

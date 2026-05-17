@@ -2,16 +2,17 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Clipboard, Copy, Eraser, Radio } from "lucide-react";
 import { findSpellIssues, processConversion } from "@/lib/sinhala";
 import { useApp, pushHistory } from "@/lib/app-context";
+import { useAuth } from "@/lib/auth-context";
 import { MicButton } from "./MicButton";
 import { HistoryPanel } from "./HistoryPanel";
+import { AccountPanel } from "./AccountPanel";
 import { supabase } from "@/integrations/supabase/client";
 
 export function Converter() {
   const { mode } = useApp();
+  const { user } = useAuth();
   const [input, setInput] = useState("");
-  const [liveBoard, setLiveBoard] = useState<string[]>([]);
-  const [syncOn, setSyncOn] = useState(false);
-  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [linked, setLinked] = useState(false);
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
 
   const output = useMemo(() => processConversion(input, mode), [input, mode]);
@@ -25,32 +26,26 @@ export function Converter() {
     return () => clearTimeout(id);
   }, [input, output]);
 
-  // Realtime board listener — attach when a session is stored from /sync
+  // Real-time link: when signed in, listen for messages from this user's phone
+  // and stream the text directly into the input box.
   useEffect(() => {
-    const id = localStorage.getItem("sintype.session");
-    if (!id) return;
-    setSessionId(id);
-    setSyncOn(true);
-    const ch = supabase.channel(`sintype:${id}`, { config: { broadcast: { self: false } } });
-    ch.on("broadcast", { event: "msg" }, (payload) => {
+    if (!user) { setLinked(false); return; }
+    const ch = supabase.channel(`sintype:${user.id}`, { config: { broadcast: { self: false } } });
+    ch.on("broadcast", { event: "set" }, (payload) => {
       const text = (payload.payload as { text?: string }).text ?? "";
-      if (text) setLiveBoard((b) => [text, ...b].slice(0, 30));
-    }).subscribe();
+      setInput(text);
+    }).on("broadcast", { event: "append" }, (payload) => {
+      const text = (payload.payload as { text?: string }).text ?? "";
+      if (text) setInput((prev) => (prev ? prev + " " : "") + text);
+    }).subscribe((status) => {
+      if (status === "SUBSCRIBED") setLinked(true);
+    });
     channelRef.current = ch;
-    return () => { ch.unsubscribe(); };
-  }, []);
-
-  const disconnect = () => {
-    if (channelRef.current) channelRef.current.unsubscribe();
-    localStorage.removeItem("sintype.session");
-    setSyncOn(false);
-    setSessionId(null);
-    setLiveBoard([]);
-  };
+    return () => { ch.unsubscribe(); setLinked(false); };
+  }, [user]);
 
   const renderOutput = () => {
     if (mode === "legacy" || issues.length === 0) return output;
-    // highlight spell issues on the unicode output
     const parts: React.ReactNode[] = [];
     let cursor = 0;
     for (const iss of issues) {
@@ -65,18 +60,19 @@ export function Converter() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-8">
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <section className="max-w-7xl mx-auto px-4 py-8 space-y-6">
+      <AccountPanel />
+
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Mode</p>
           <p className="font-display text-lg">{mode === "unicode" ? "Unicode (Modern)" : "Legacy FM Font"}</p>
         </div>
         <div className="flex items-center gap-2">
           <HistoryPanel onRestore={(t) => setInput(t)} />
-          {syncOn && (
+          {linked && (
             <span className="flex items-center gap-2 text-xs px-3 py-2 rounded-md border border-[var(--neon-cyan)] text-[var(--neon-cyan)]">
-              <Radio className="w-3.5 h-3.5 animate-pulse" /> Live · {sessionId?.slice(0, 6)}
-              <button onClick={disconnect} className="ml-2 underline">disconnect</button>
+              <Radio className="w-3.5 h-3.5 animate-pulse" /> Phone linked
             </span>
           )}
         </div>
@@ -89,7 +85,7 @@ export function Converter() {
             <h2 className="font-display text-sm tracking-widest uppercase text-muted-foreground">Singlish Input</h2>
             <div className="flex items-center gap-2">
               <button
-                onClick={async () => { try { setInput(input + (await navigator.clipboard.readText())); } catch {} }}
+                onClick={async () => { try { setInput(input + (await navigator.clipboard.readText())); } catch { /* noop */ } }}
                 className="p-2 rounded-md border border-border hover:bg-accent/30" title="Paste"
               ><Clipboard className="w-4 h-4" /></button>
               <button onClick={() => setInput("")} className="p-2 rounded-md border border-border hover:bg-accent/30" title="Clear">
@@ -128,22 +124,6 @@ export function Converter() {
           )}
         </div>
       </div>
-
-      {/* Live board */}
-      {syncOn && (
-        <div className="mt-8 neon-border p-5">
-          <h2 className="font-display text-sm tracking-widest uppercase text-muted-foreground mb-3">Live Board · Mobile feed</h2>
-          {liveBoard.length === 0 ? (
-            <p className="text-muted-foreground text-sm">Waiting for messages from your phone…</p>
-          ) : (
-            <ul className="space-y-2 max-h-80 overflow-y-auto">
-              {liveBoard.map((m, i) => (
-                <li key={i} className="p-3 rounded-md bg-secondary/40 border border-border">{m}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      )}
     </section>
   );
 }
