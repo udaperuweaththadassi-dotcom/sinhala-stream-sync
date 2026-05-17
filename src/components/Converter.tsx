@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Clipboard, Copy, Eraser, Radio } from "lucide-react";
-import { SmartLearningEngine } from "@/lib/smartEngine"; // ඔයා ෆයිල් එක දාපු path එක දෙන්න src/lib/smartEngine.ts
+import { SmartLearningEngine } from "@/lib/smartEngine";
 import { findSpellIssues, processConversion } from "@/lib/sinhala";
 import { useApp, pushHistory } from "@/lib/app-context";
 import { useAuth } from "@/lib/auth-context";
@@ -10,8 +10,9 @@ import { AccountPanel } from "./AccountPanel";
 import { supabase } from "@/integrations/supabase/client";
 
 export function Converter() {
-  const smartEngine = new SmartLearningEngine();  // ← Add this line here
-  
+  // ටයිප් කරද්දී වෙනස්කම් බලාගන්නා SmartEngine එක (Local + Cloud Learning)
+  const smartEngine = useRef(new SmartLearningEngine()).current;
+
   const { mode } = useApp();
   const { user } = useAuth();
   const [input, setInput] = useState("");
@@ -21,6 +22,23 @@ export function Converter() {
   const output = useMemo(() => processConversion(input, mode), [input, mode]);
   const unicodePreview = useMemo(() => processConversion(input, "unicode"), [input]);
   const issues = useMemo(() => findSpellIssues(unicodePreview), [unicodePreview]);
+
+  // ටයිප් කරද්දී වෙනස්කම් බලාගන්නා Function එක
+  const handleTyping = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputValue = event.target.value;
+    setInput(inputValue); // State එක අපඩේට් කරනවා
+
+    // 1. ක්ෂණිකව අපේ Local Engine එකෙන් පට්ට Speed එකට Convert කරලා පෙන්වනවා (Offline Safe)
+    const localResult = smartEngine.convert(inputValue);
+    // localResult දැනටින් output state එක හරහා render වෙනවා
+
+    // 2. [DEBOUNCE] යූසර් ටයිප් කරලා මිලි තත්පර 500ක් නැවතුණ ගමන් API එකෙන් ඉගෙන ගන්නවා
+    // මේකෙන් සර්වර් එකට අනවශ්���ය රික්වෙස්ට් යාම වළක්වනවා
+    window.clearTimeout((window as any).typingTimeout);
+    (window as any).typingTimeout = window.setTimeout(() => {
+      smartEngine.learnFromAPI(inputValue);
+    }, 500);
+  };
 
   // Push to history (debounced)
   useEffect(() => {
@@ -99,7 +117,7 @@ export function Converter() {
           </div>
           <textarea
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={handleTyping}
             placeholder="Type like: ammaa, mama gedara yanavaa…"
             className="w-full h-64 resize-none bg-transparent outline-none font-mono text-base placeholder:text-muted-foreground/60"
           />
