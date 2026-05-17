@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Clipboard, Copy, Eraser, Radio } from "lucide-react";
+import { SmartLearningEngine } from "@/lib/smartEngine"; // ඔයා ෆයිල් එක දාපු path එක දෙන්න src/lib/smartEngine.ts
 import { findSpellIssues, processConversion } from "@/lib/sinhala";
 import { useApp, pushHistory } from "@/lib/app-context";
 import { useAuth } from "@/lib/auth-context";
