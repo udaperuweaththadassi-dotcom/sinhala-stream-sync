@@ -1,0 +1,293 @@
+
+1.start a aa A Aa i ii u uu \r \\r e ee ai o oo au \n 
+
+අ ආ ඇ ඈ ඉ ඊ උ ඌ ඍ ඎ එ ඒ ඓ ඔ ඕ ඖ ං 
+
+w wd we wE b B W W! R RD t tA fft T ´ T! x end 
+ 
+
+2.start ka kaa kA kAa ki kii ku kuu kre kree kro kroo kru kruu kra kraa ke kee kai ko koo kau k kY kYa kri krii
+
+ක කා කැ කෑ කි කී කු කූ ක්‍රෙ ක්‍රේ ක්‍රො ක්‍රෝ කෘ කෲ ක්‍ර ක්‍රා කෙ කේ කෛ කො කෝ කෞ ක් ක්‍ය ක්‍යා ක්‍රි ක්‍රී 
+
+l ld le lE ls lS l= l+ fl% fl%a fl%d fl%da lD lDD l% l%d fl fla ffl fld flda fl! la lH lHd l%s l%S end  
+
+
+3.start Ka Kaa KA KAa Ki Kii Ku Kuu Kre Kree Kro Kroo Kru Kruu Kra Kraa Ke Kee Kai Ko Koo Kau K KY KYa Kri Krii
+
+ඛ ඛා ඛැ ඛෑ ඛි ඛී ඛු ඛූ  ඛ්‍රෙ ඛ්‍රේ ඛ්‍රො ඛ්‍රෝ ඛෘ ඛෲ ඛ්‍ර ඛ්‍රා ඛෙ ඛේ ඛෛ ඛො ඛෝ ඛෞ ඛ් ඛ්‍ය ඛ්‍යා ඛ්‍රි ඛ්‍රී 
+
+L Ld Le LE Å Ç Lq LQ  fL% fÄ% fL%d fL%da LD LDD L% L%d fL fÄ ffL fLd fLda fL! Ä LH LHd Å% Ç% end 
+
+
+4.start ga gaa gA gAa gi gii gu guu gre gree gro groo gru gruu gra graa ge gee gai go goo gau g gY gYa gri grii
+
+ග ගා ගැ ගෑ ගි ගී ගු ගූ ග්‍රෙ ග්‍රේ ග්‍රො ග්‍රෝ ගෘ ගෲ ග්‍ර ග්‍රා ගෙ ගේ ගෛ ගො ගෝ ගෞ ග් ග්‍ය ග්‍යා ග්‍රි ග්‍රී
+
+. .d .e .E .s .S .= .+ f.% f.%a f.%d f.%da .D .DD .% .%d f. f.a ff. f.d f.da f.! .a .H .Hd .%s .%S end 
+
+
+5.start Ga Gaa GA GAa Gi Gii Gu Guu Gre Gree Gro Groo Gru Gruu Gra Graa Ge Gee Gai Go Goo Gau G GY GYa Gri Grii
+
+ඝ ඝා ඝැ ඝෑ ඝි ඝී ඝු ඝූ ඝ්‍රෙ ඝ්‍රේ ඝ්‍රො ඝ්‍රෝ ඝෘ ඝෲ ඝ්‍ර ඝ්‍රා ඝෙ ඝේ ඝෛ ඝො ඝෝ ඝෞ ඝ් ඝ්‍ය ඝ්‍යා ඝ්‍රි ඝ්‍රී
+
+> >d >e >E >s >S >q >Q f>% f>%a f>%d f>%da >D >DD >% >%d f> f>a ff> f>d f>da f>! >a >H >Hd >%s >%S end 
+
+
+6.start \ga \gaa \gA \gAa \gi \gii \gu \guu \gre \gree \gro \groo \gru \gruu \gra \graa \ge \gee \gai \go \goo \gau \g \gY \gYa \gri \grii
+
+ඟ ඟා ඟැ ඟෑ ඟි ඟී ඟු ඟූ ඟ්‍රෙ ඟ්‍රේ ඟ්‍රො ඟ්‍රෝ ඟෘ ඟෲ ඟ්‍ර ඟ්‍රා ඟෙ ඟේ ඟෛ ඟො ඟෝ ඟෞ ඟ් ඟ්‍ය ඟ්‍යා ඟ්‍රි ඟ්‍රී
+
+Õ Õd Õe ÕE Õs ÕS Õ= Õ+ fÕ% fÕ%a fÕ%d fÕ%da ÕD ÕDD Õ% Õ%d fÕ fÕa ffÕ fÕd fÕda fÕ! Õa ÕH ÕHd Õ%s Õ%S end 
+
+
+7.start cha chaa chA chAa chi chii chu chuu chre chree chro chroo chru chruu chra chraa che chee chai cho choo chau ch chY chYa chri chrii
+
+ච චා චැ චෑ චි චී චු චූ ච්‍රෙ ච්‍රේ ච්‍රො ච්‍රෝ චෘ චෲ ච්‍ර ච්‍රා චෙ චේ චෛ චො චෝ චෞ ච් ච්‍ය ච්‍යා ච්‍රි ච්‍රී
+
+p pd pe pE Ñ Ö pq pQ fp% fÉ% fp%d fp%da pD pDD p% p%d fp fÉ ffp fpd fpda fp! É pH PhD Ñ% Ö% end 
+
+
+8.start Cha Chaa ChA ChAa Chi Chii Chu Chuu Chre Chree Chro Chroo Chru Chruu Chra Chraa Che Chee Chai Cho Choo Chau Ch ChY ChYa Chri Chrii
+
+ඡ ඡා ඡැ ඡෑ ඡි ඡී ඡු ඡූ ඡ්‍රෙ ඡ්‍රේ ඡ්‍රො ඡ්‍රෝ ඡෘ ඡෲ ඡ්‍ර ඡ්‍රා ඡෙ ඡේ ඡෛ ඡො ඡෝ ඡෞ ඡ් ඡ්‍ය ඡ්‍යා ඡ්‍රි ඡ්‍රී
+
+P Pd Pe PE ý Â Pq PQ fP% fþ% fP%d fP%da PD PDD P% P%d fP fþ ffP fPd fPda fP! þ PH PHd ý% Â% end 
+
+
+9.start ja jaa jA jAa ji jii ju juu jre jree jro jroo jru jruu jra jraa je jee jai jo joo jau j jY jYa jri jrii
+
+ජ ජා ජැ ජෑ ජි ජී ජු ජූ ජ්‍රෙ ජ්‍රේ ජ්‍රො ජ්‍රෝ ජෘ ජෲ ජ්‍ර ජ්‍රා ජෙ ජේ ජෛ ජො ජෝ ජෞ ජ් ජ්‍ය ජ්‍යා ජ්‍රි ජ්‍රී 
+
+c cd ce cE ð Ô cq cQ fc% fÊ% fc%d fc%da cD cDD c% c%d fc fÊ ffc fcd fcda fc! Ê cH cHd ð% Ô%end 
+
+
+10.start za zaa zA zAa zi zii zu zuu zre zree zro zroo zru zruu zra zraa ze zee zai zo zoo zau z zY zYa zri zrii
+
+ඣ ඣා ඣැ ඣෑ ඣි ඣී ඣු ඣූ ඣ්‍රෙ ඣ්‍රේ ඣ්‍රො ඣ්‍රෝ ඣෘ ඣෲ ඣ්‍ර ඣ්‍රා ඣෙ ඣේ ඣෛ ඣො ඣෝ ඣෞ ඣ් ඣ්‍ය ඣ්‍යා ඣ්‍රි ඣ්‍රී
+
+® ®d ®e ®E ¯ ° ®q ®Q f®% fCè% f®%d f®%da ®D ®DD ®% ®%d f® fCè ff® f®d f®da f®! Cè ®H ®Hd f¯% f°% end 
+
+
+11.start xa xaa xA xAa xi xii xu xuu xre xree xro xroo xru xruu xra xraa xe xee xai xo xoo xau x xY xYa xri xrii
+
+ඤ ඤා ඤැ ඤෑ ඤි ඤී ඤු ඤූ ඤ්‍රෙ ඤ්‍රේ ඤ්‍රො ඤ්‍රෝ ඤෘ ඤෲ ඤ්‍ර ඤ්‍රා ඤෙ ඤේ ඤෛ ඤො ඤෝ ඤෞ ඤ් ඤ්‍ය ඤ්‍යා 
+
+[ [d [e [E [s [S û ü fCø fCøa fCød fCøda [D [DD Cø Cød f[ f[a ff[ f[d f[da f[! [a [H [Hd end 
+
+
+12.start Xa Xaa XA XAa Xi Xii Xu Xuu Xre Xree Xro Xroo Xru Xruu Xra Xraa Xe Xee Xai Xo Xoo Xau X XY XYa Xri Xrii
+
+ඥ ඥා ඥැ ඥෑ ඥි ඥී ඥු ඥූ ඥ්‍රෙ ඥ්‍රේ ඥ්‍රො ඥ්‍රෝ ඥෘ ඥෲ ඥ්‍ර ඥ්‍රා ඥෙ ඥේ ඥෛ ඥො ඥෝ ඥෞ ඥ් ඥ්‍ය ඥ්‍යා ඥ්‍රි ඥ්‍රී 
+
+{ {d {e {E {s {S {q {Q f{% f{%a f{%d f{%da {D {DD {% {%d f{ f{a ff{ f{d f{da f{! {a {H {Hd {%s {%S end 
+ 
+
+13.start ta taa tA tAa ti tii tu tuu tre tree tro troo tru truu tra traa te tee tai to too tau t tY tYa tri trii
+
+ට ටා ටැ ටෑ ටි ටී ටු ටූ ට්‍රෙ ට්‍රේ ට්‍රො ට්‍රෝ ටෘ ටෲ ට්‍ර ට්‍රා ටෙ ටේ ටෛ ටො ටෝ ටෞ ට් ට්‍ය ට්‍යා ට්‍රි ට්‍රී 
+
+g gd ge gE á à gq gQ fg% fÜ% fg%d fg%da gD gDD g% g%d fg fÜ ffg fgd fgda fg! Ü gH gHd á% à% end  
+
+
+14.start Ta Taa TA TAa Ti Tii Tu Tuu Tre Tree Tro Troo Tru Truu Tra Traa Te Tee Tai To Too Tau T TY TYa Tri Trii
+
+ඨ ඨා ඨැ ඨෑ ඨි ඨී ඨු ඨූ ඨ්‍රෙ ඨ්‍රේ ඨ්‍රො ඨ්‍රෝ ඨෘ ඨෲ ඨ්‍ර ඨ්‍රා ඨෙ ඨේ ඨෛ ඨො ඨෝ ඨෞ ඨ් ඨ්‍ය ඨ්‍යා ඨ්‍රි ඨ්‍රී
+
+G Gd Ge GE À Á Gq GQ fG% fGA% fG%d fG%da GD GDD G% G%d fG fGA ffG fGd fGda fG! GA GH GHd À% Á% end   
+ 
+
+15.start da daa dA dAa di dii du duu dre dree dro droo dru druu dra draa de dee dai do doo dau d dY dYa dri drii
+
+ඩ ඩා ඩැ ඩෑ ඩි ඩී ඩු ඩූ ඩ්‍රෙ ඩ්‍රේ ඩ්‍රො ඩ්‍රෝ ඩෘ ඩෲ ඩ්‍ර ඩ්‍රා ඩෙ ඩේ ඩෛ ඩො ඩෝ ඩෞ ඩ් ඩ්‍ය ඩ්‍යා ඩ්‍රි ඩ්‍රී
+
+v vd ve vE ä ã vq vQ fv% fâ% fv%d fv%da vD vDD v% v%d fv fâ ffv fvd fvda fv! â vH vHd ä% ã% end 
+
+
+16.start Da Daa DA DAa Di Dii Du Duu Dre Dree Dro Droo Dru Druu Dra Draa De Dee Dai Do Doo Dau D DY DYa Dri Drii
+
+ඪ ඪා ඪැ ඪෑ ඪි ඪී ඪු ඪූ ඪ්‍රෙ ඪ්‍රේ ඪ්‍රො ඪ්‍රෝ ඪෘ ඪෲ ඪ්‍ර ඪ්‍රා ඪෙ ඪේ ඪෛ ඪො ඪෝ ඪෞ ඪ් ඪ්‍ය ඪ්‍යා ඪ්‍රි ඪ්‍රී   
+
+V Vd Ve VE Î Ð Vq VQ fV% fVA% fV%d fV%da VD VDD V% V%d fV fVA ffV fVd fVda fV! VA VH VHd Î% Ð% end 
+    
+
+17.start Na Naa NA NAa Ni Nii Nu Nuu Nre Nree Nro Nroo Nru Nruu Nra Nraa Ne Nee Nai No Noo Nau N NY NYa Nri Nrii
+
+ණ ණා ණැ ණෑ ණි ණී ණු ණූ ණ්‍රෙ ණ්‍රේ ණ්‍රො ණ්‍රෝ ණෘ ණෲ ණ්‍ර ණ්‍රා ණෙ ණේ ණෛ ණො ණෝ ණෞ ණ් ණ්‍ය ණ්‍යා ණ්‍රි ණ්‍රී 
+
+K Kd Ke KE ‚ Œ Kq KQ fK% fK%a fK%d fK%da KD KDD K% K%d fK fKa ffK fKd fKda fK! Ka KH KHd K%s K%S end 
+
+
+18.start \da \daa \dA \dAa \di \dii \du \duu \dre \dree \dro \droo \dru \druu \dra \draa \de \dee \dai \do \doo \dau \d \dY \dYa \dri \drii
+
+ඬ ඬා ඬැ ඬෑ ඬි ඬී ඬු ඬූ ඬ්‍රෙ ඬ්‍රේ ඬ්‍රො ඬ්‍රෝ ඬෘ ඬෲ ඬ්‍ර ඬ්‍රා ඬෙ ඬේ ඬෛ ඬො ඬෝ ඬෞ ඬ් ඬ්‍ය ඬ්‍යා ඬ්‍රි ඬ්‍රී   
+
+~ ~d ~e ~E ç é ~q ~Q f~% få% f~%d f~%da ~D ~DD ~% ~%d f~ få ff~ f~d f~da f~! å ~H ~Hd ç% é% end 
+
+
+19.start tha thaa thA thAa thi thii thu thuu thre three thro throo thru thruu thra thraa the thee thai tho thoo thau th thY thYa thri thrii
+
+ත තා තැ තෑ ති තී තු තූ ත්‍රෙ ත්‍රේ ත්‍රො ත්‍රෝ තෘ තෲ ත්‍ර ත්‍රා තෙ තේ තෛ තො තෝ තෞ ත් ත්‍ය ත්‍යා ත්‍රි ත්‍රී 
+
+; ;d ;e ;E ;s ;S ;= ;+ f;% f;%a f;%d f;%da ;D ;DD ;% ;%d f; f;a ff; f;d f;da f;! ;a ;H ;Hd ;%s ;%S end 
+
+
+20.start Tha Thaa ThA ThAa Thi Thii Thu Thuu Thre Three Thro Throo Thru Thruu Thra Thraa The Thee Thai Tho Thoo Thau Th ThY ThYa Thri Thrii
+
+ථ ථා ථැ ථෑ ථි ථී ථු ථූ ථ්‍රෙ ථ්‍රේ ථ්‍රො ථ්‍රෝ ථෘ ථෲ ථ්‍ර ථ්‍රා ථෙ ථේ ථෛ ථො ථෝ ථෞ ථ් ථ්‍ය ථ්‍යා ථ්‍රි ථ්‍රී 
+
+: :d :e :E Ó Ò :q :Q f:% f:A% f:%d f:%da :D :DD :% :%d f: f:A ff: f:d f:da f:! :A :H :Hd Ó% Ò% end 
+ 
+
+21.start dha dhaa dhA dhAa dhi dhii dhu dhuu dhre dhree dhro dhroo dhru dhruu dhra dhraa dhe dhee dhai dho dhoo dhau dh dhY dhYa dhri dhrii
+
+ද දා දැ දෑ දි දී දු දූ ද්‍රෙ ද්‍රේ ද්‍රො ද්‍රෝ දෘ දෲ ද්‍ර ද්‍රා දෙ දේ දෛ දො දෝ දෞ ද් ද්‍ය ද්‍යා ද්‍රි ද්‍රී
+
+o od ± oE È § ÿ ¥ fø føa fød føda oD oDD ø ød fo foa ffo fod foda fo! oa oH oHd øs øS end 
+
+
+22.start Dha Dhaa DhA DhAa Dhi Dhii Dhu Dhuu Dhre Dhree Dhro Dhroo Dhru Dhruu Dhra Dhraa Dhe Dhee Dhai Dho Dhoo Dhau Dh DhY DhYa Dhri Dhrii
+
+ධ ධා ධැ ධෑ ධි ධී ධු ධූ ධ්‍රෙ ධ්‍රේ ධ්‍රො ධ්‍රෝ ධෘ ධෲ ධ්‍ර ධ්‍රා ධෙ ධේ ධෛ ධො ධෝ ධෞ ධ් ධ්‍ය ධ්‍යා ධ්‍රි ධ්‍රී 
+
+O Od Oe OE ê ë Oq OQ fO% fè% fO%d fO%da OD ODD O% O%d fO fè ffO fOd fOda fO! è OH OHd ê% ë% end 
+
+
+23.start na naa nA nAa ni nii nu nuu nre nree nro nroo nru nruu nra nraa ne nee nai no noo nau n nY nYa nri nrii
+
+න නා නැ නෑ නි නී නු නූ න්‍රෙ න්‍රේ න්‍රො න්‍රෝ නෘ නෲ න්‍ර න්‍රා නෙ නේ නෛ නො නෝ නෞ න් න්‍ය න්‍යා න්‍රි න්‍රී
+
+k kd ke kE ks kS kq kQ fk% fk%a fk%d fk%da kD kDD k% k%d fk fka ffk fkd fkda fk! ka kH kHd k%s k%S end    
+ 
+
+24.start \dha \dhaa \dhA \dhAa \dhi \dhii \dhu \dhuu \dhre \dhree \dhro \dhroo \dhru \dhruu \dhra \dhraa \dhe \dhee \dhai \dho \dhoo \dhau \dh \dhY \dhYa \dhri \dhrii
+
+ඳ ඳා ඳැ ඳෑ ඳි ඳී ඳු ඳූ ඳ්‍රෙ ඳ්‍රේ ඳ්‍රො ඳ්‍රෝ ඳෘ ඳෲ ඳ්‍ර ඳ්‍රා ඳෙ ඳේ ඳෛ ඳො ඳෝ ඳෞ ඳ් ඳ්‍ය ඳ්‍යා ඳ්‍රි ඳ්‍රී
+
+| |d ƒ |E ¢ £ ÷ ª fø føa fød føda |D |DD ø ød f| f|a ff| f|d f|da f|! |a |H |Hd øs øS end  
+ 
+
+25.start pa paa pA pAa pi pii pu puu pre pree pro proo pru pruu pra praa pe pee pai po poo pau p pY pYa pri prii
+
+ප පා පැ පෑ පි පී පු පූ ප්‍රෙ ප්‍රේ ප්‍රො ප්‍රෝ පෘ පෲ ප්‍ර ප්‍රා පෙ පේ පෛ පො පෝ පෞ ප් ප්‍ය ප්‍යා ප්‍රි ප්‍රී
+
+m md me mE ms mS mq mQ fm% fm%a fm%d fm%da mD mDD m% m%d fm fma ffm fmd fmda fm! ma mH mHd m%s m%S end 
+
+
+26.start Pa Paa PA PAa Pi Pii Pu Puu Pre Pree Pro Proo Pru Pruu Pra Praa Pe Pee Pai Po Poo Pau P PY PYa Pri Prii
+
+ඵ ඵා ඵැ ඵෑ ඵි ඵී ඵු ඵූ ඵ්‍රෙ ඵ්‍රේ ඵ්‍රො ඵ්‍රෝ ඵෘ ඵෲ ඵ්‍ර ඵ්‍රා ඵෙ ඵේ ඵෛ ඵො ඵෝ ඵෞ ඵ් ඵ්‍ය ඵ්‍යා ඵ්‍රි ඵ්‍රී  
+
+M Md Me ME Ý Ú Mq MQ fM% fMA% fM%d fM%da MD MDD M% M%d fM fMA ffM fMd fMda fM! MA MH MHd Ý% Ú% end  
+  
+
+27.start ba baa bA bAa bi bii bu buu bre bree bro broo bru bruu bra braa be bee bai bo boo bau b bY bYa bri brii
+
+බ බා බැ බෑ බි බී බු බූ බ්‍රෙ බ්‍රේ බ්‍රො බ්‍රෝ බෘ බෲ බ්‍ර බ්‍රා බෙ බේ බෛ බො බෝ බෞ බ් බ්‍ය බ්‍යා බ්‍රි බ්‍රී 
+
+n nd ne nE ì î nq nQ fn% fí% fn%d fn%da nD nDD n% n%d fn fí ffn fnd fnda fn! í nH nHd ì% î% end 
+
+
+28.start bha bhaa bhA bhAa bhi bhii bhu bhuu bhre bhree bhro bhroo bhru bhruu bhra bhraa bhe bhee bhai bho bhoo bhau bh bhY bhYa bhri bhrii
+
+භ භා භැ භෑ භි භී භු භූ භ්‍රෙ භ්‍රේ භ්‍රො භ්‍රෝ භෘ භෲ භ්‍ර භ්‍රා භෙ භේ භෛ භො භෝ භෞ භ් භ්‍ය භ්‍යා භ්‍රි භ්‍රී
+
+N Nd Ne NE Ns NS Nq NQ fN% fN%a fN%d fN%da ND NDD N% N%d fN fNa ffN fNd fNda fN! Na NH NHd N%s N%S end 
+
+
+29.start ma maa mA mAa mi mii mu muu mre mree mro mroo mru mruu mra mraa me mee mai mo moo mau m mY mYa mri mrii
+
+ම මා මැ මෑ මි මී මු මූ ම්‍රෙ ම්‍රේ ම්‍රො ම්‍රෝ මෘ මෲ ම්‍ර ම්‍රා මෙ මේ මෛ මො මෝ මෞ ම් ම්‍ය ම්‍යා ම්‍රි ම්‍රී 
+
+u ud ue uE ñ ó uq uQ fu% fï% fu%d fu%da uD uDD u% u%d fu fï ffu fud fuda fu! ï uH uHd ñ% ó% end 
+  
+
+30.start Ba Baa BA BAa Bi Bii Bu Buu Bre Bree Bro Broo Bru Bruu Bra Braa Be Bee Bai Bo Boo Bau B BY BYa Bri Brii
+
+ඹ ඹා ඹැ ඹෑ ඹි ඹී ඹු ඹූ ඹ්‍රෙ ඹ්‍රේ ඹ්‍රො ඹ්‍රෝ ඹෘ ඹෲ ඹ්‍ර ඹ්‍රා ඹෙ ඹේ ඹෛ ඹො ඹෝ ඹෞ ඹ් ඹ්‍ය ඹ්‍යා ඹ්‍රි ඹ්‍රී  
+
+U Ud Ue UE ô ö Uq UQ fU% fò% fU%d fU%da UD UDD U% U%d fU fò ffU fUd fUda fU! ò UH UHd ô% ö% end  
+ 
+
+31.start ya yaa yA yAa yi yii yu yuu yre yree yro yroo yru yruu yra yraa ye yee yai yo yoo yau y yY yYa yri yrii
+
+ය යා යැ යෑ යි යී යු යූ ය්‍රෙ ය්‍රේ ය්‍රො ය්‍රෝ යෘ යෲ ය්‍ර ය්‍රා යෙ යේ යෛ යො යෝ යෞ ය් ය්‍ය ය්‍යා ය්‍රි ය්‍රී  
+
+h hd he hE hs hS hq hQ fh% fh%a fh%d fh%da hD hDD h% h%d fh fha ffh fhd fhda fh! ha hH hHd h%s h%S end    
+
+
+32.start ra raa rA rAa ri rii ru ruu rre rree rro rroo rru rruu rra rraa re ree rai ro roo rau r rY rYa rri rrii
+
+ර රා රැ රෑ රි රී රු රූ ර්‍රෙ ර්‍රේ ර්‍රො ර්‍රෝ රෘ රෲ ර්‍ර ර්‍රා රෙ රේ රෛ රො රෝ රෞ ර් ර්‍ය ර්‍යා ර්‍රි ර්‍රී  
+
+r rd / ? ß Í re rE fr% f¾% fr%d fr%da rD rDD r% r%d fr f¾ ffr frd frda fr! ¾ rH rHd ß% Í% end 
+
+
+33.start la laa lA lAa li lii lu luu lre lree lro lroo lru lruu lra lraa le lee lai lo loo lau l lY lYa lri lrii
+
+ල ලා ලැ ලෑ ලි ලී ලු ලූ ල්‍රෙ ල්‍රේ ල්‍රො ල්‍රෝ ලෘ ලෲ ල්‍ර ල්‍රා ලෙ ලේ ලෛ ලො ලෝ ලෞ ල් ල්‍ය ල්‍යා ල්‍රි ල්‍රී 
+
+, ,d ,e ,E ,s ,S ¨ Æ f,% f,%a f,%d f,%da ,D ,DD ,% ,%d f, f,a ff, f,d f,da f,! ,a ,H ,Hd ,%s ,%S end  
+ 
+
+34.start wa waa wA wAa wi wii wu wuu wre wree wro wroo wru wruu wra wraa we wee wai wo woo wau w wY wYa wri wrii
+
+ව වා වැ වෑ වි වී වු වූ ව්‍රෙ ව්‍රේ ව්‍රො ව්‍රෝ වෘ වෲ ව්‍ර ව්‍රා වෙ වේ වෛ වො වෝ වෞ ව් ව්‍ය ව්‍යා ව්‍රි ව්‍රී 
+
+j jd je jE ú ù jq jQ fj% fõ% fj%d fj%da jD jDD j% j%d fj fõ ffj fjd fjda fj! õ jH jHd ú% ù% end  
+
+
+41.start va vaa vA vAa vi vii vu vuu vre vree vro vroo vru vruu vra vraa ve vee vai vo voo vau v vY vYa vri vrii
+
+ව වා වැ වෑ වි වී වු වූ ව්‍රෙ ව්‍රේ ව්‍රො ව්‍රෝ වෘ වෲ ව්‍ර ව්‍රා වෙ වේ වෛ වො වෝ වෞ ව් ව්‍ය ව්‍යා ව්‍රි ව්‍රී 
+
+j jd je jE ú ù jq jQ fj% fõ% fj%d fj%da jD jDD j% j%d fj fõ ffj fjd fjda fj! õ jH jHd ú% ù% end  
+
+ 
+35.start sha shaa shA shAa shi shii shu shuu shre shree shro shroo shru shruu shra shraa she shee shai sho shoo shau sh shY shYa shri shrii
+
+ශ ශා ශැ ශෑ ශි ශී ශු ශූ ශ්‍රෙ ශ්‍රේ ශ්‍රො ශ්‍රෝ ශෘ ශෲ ශ්‍ර ශ්‍රා ශෙ ශේ ශෛ ශො ශෝ ශෞ ශ් ශ්‍ය ශ්‍යා ශ්‍රි ශ්‍රී 
+
+Y Yd Ye YE Ys YS Y= Y+ fY% fY%a fY%d fY%da YD YDD Y% Y%d fY fYa ffY fYd fYda fY! Ya YH YHd Y%s › end 
+ 
+
+36.start Sha Shaa ShA ShAa Shi Shii Shu Shuu Shre Shree Shro Shroo Shru Shruu Shra Shraa She Shee Shai Sho Shoo Shau Sh ShY ShYa Shri Shrii
+
+ෂ ෂා ෂැ ෂෑ ෂි ෂී ෂු ෂූ ෂ්‍රෙ ෂ්‍රේ ෂ්‍රො ෂ්‍රෝ ෂෘ ෂෲ ෂ්‍ර ෂ්‍රා ෂෙ ෂේ ෂෛ ෂො ෂෝ ෂෞ ෂ් ෂ්‍ය ෂ්‍යා ෂ්‍රි ෂ්‍රී  
+
+I Id Ie IE Is IS Iq IQ fI% fI%a fI%d fI%da ID IDD I% I%d fI fIa ffI fId fIda fI! Ia IH IHd I%s I%S end 
+
+
+37.start sa saa sA sAa si sii su suu sre sree sro sroo sru sruu sra sraa se see sai so soo sau s sY sYa sri srii
+
+ස සා සැ සෑ සි සී සු සූ ස්‍රෙ ස්‍රේ ස්‍රො ස්‍රෝ සෘ සෲ ස්‍ර ස්‍රා සෙ සේ සෛ සො සෝ සෞ ස් ස්‍ය ස්‍යා ස්‍රි ස්‍රී  
+
+i id ie iE is iS iq iQ fi% fi%a fi%d fi%da iD iDD i% i%d fi fia ffi fid fida fi! ia iH iHd i%s i%S end 
+
+
+38.start ha haa hA hAa hi hii hu huu hre hree hro hroo hru hruu hra hraa he hee hai ho hoo hau h hY hYa hri hrii
+
+හ හා හැ හෑ හි හී හු හූ හ්‍රෙ හ්‍රේ හ්‍රො හ්‍රෝ හෘ හෲ හ්‍ර හ්‍රා හෙ හේ හෛ හො හෝ හෞ හ් හ්‍ය හ්‍යා හ්‍රි හ්‍රී
+
+y yd ye yE ys yS yq yQ fy% fy%a fy%d fy%da yD yDD y% y%d fy fya ffy fyd fyda fy! ya yH yHd y%s y%S end   
+  
+
+39.start La Laa LA LAa Li Lii Lu Luu Lre Lree Lro Lroo Lru Lruu Lra Lraa Le Lee Lai Lo Loo Lau L LY LYa Lri Lrii
+
+ළ ළා ළැ ළෑ ළි ළී ළු ළූ ළ්‍රෙ ළ්‍රේ ළ්‍රො ළ්‍රෝ ළෘ ළෲ ළ්‍ර ළ්‍රා ළෙ ළේ ළෛ ළො ළෝ ළෞ ළ් ළ්‍ය ළ්‍යා ළ්‍රි ළ්‍රී 
+
+< <d <e <E <s <S ¿ ¿E f<% f<%a f<%d f<%da <D <DD <% <%d f< f<a ff< f<d f<da f<! <a <H <Hd <%s <%S end 
+
+
+40.start fa faa fA fAa fi fii fu fuu fre free fro froo fru fruu fra fraa fe fee fai fo foo fau f fY fYa fri frii
+
+ෆ ෆා ෆැ ෆෑ ෆි ෆී ෆු ෆූ ෆ්‍රෙ ෆ්‍රේ ෆ්‍රො ෆ්‍රෝ ෆෘ ෆෲ ෆ්‍ර ෆ්‍රා ෆෙ ෆේ ෆෛ ෆො ෆෝ ෆෞ ෆ් ෆ්‍ය ෆ්‍යා ෆ්‍රි ෆ්‍රී   
+
+* *d *e *E *s *S *q *Q f*% f*%a f*%d f*%da *D *DD *% *%d f* f*a ff* f*d f*da f*! *a *H *Hd  *%s *%S  end 
+
+
+42.start . - = ( ) %  / ' " ? ! ~ ` , ; :
+
+. - = ( ) % / ‘ “ ? ! ” ’ , ; : 
+
+¡ - } ^ & ] $ z — @ æ ˜ Z " ¦ ( end
