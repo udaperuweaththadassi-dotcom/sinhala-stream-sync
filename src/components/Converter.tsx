@@ -135,7 +135,7 @@ export function Converter() {
               <Copy className="w-4 h-4" /> Copy
             </button>
           </div>
-          <div className="w-full h-64 overflow-y-auto text-xl leading-relaxed whitespace-pre-wrap break-words">
+          <div className={`w-full h-64 overflow-y-auto text-xl leading-relaxed whitespace-pre-wrap break-words ${mode === "legacy" ? "font-fm-legacy" : ""}`}>
             {input ? renderOutput() : <span className="text-muted-foreground text-base">Output appears here in real time…</span>}
           </div>
           {issues.length > 0 && mode === "unicode" && (
