@@ -23,20 +23,22 @@ export type ConversionMode = "unicode" | "legacy";
 // ─── Parser ────────────────────────────────────────────────────────────────
 
 interface ParsedDict {
+  // Singlish → Unicode (used in Unicode mode)
   unicode: Map<string, string>;
+  // Singlish → Legacy AND Unicode → Legacy (used in Legacy mode, merged)
   legacy: Map<string, string>;
-  maxKeyLen: number;
+  // Unicode → Legacy only (kept separate for clarity / future use)
+  unicodeToLegacy: Map<string, string>;
+  maxKeyLenUnicode: number;
+  maxKeyLenLegacy: number;
 }
 
 function parseDict(src: string): ParsedDict {
   const unicode = new Map<string, string>();
   const legacy = new Map<string, string>();
+  const unicodeToLegacy = new Map<string, string>();
 
-  // Normalise line endings, then split.
   const rawLines = src.replace(/\r\n?/g, "\n").split("\n");
-
-  // Collapse to non-empty lines but remember nothing else — blocks are
-  // detected by ".start" / "end" markers.
   const lines = rawLines.map((l) => l.trim()).filter((l) => l.length > 0);
 
   for (let i = 0; i < lines.length; i++) {
@@ -44,13 +46,10 @@ function parseDict(src: string): ParsedDict {
     const startIdx = header.indexOf(".start");
     if (startIdx === -1) continue;
 
-    // Triggers come from everything AFTER ".start" on the header line.
     const triggerLine = header.slice(startIdx + ".start".length).trim();
     const triggers = triggerLine.split(/\s+/).filter(Boolean);
 
-    // Next non-empty line = unicode mapping.
     const uniLine = lines[i + 1] ?? "";
-    // Line after that = legacy mapping (may end with " end").
     let legLine = lines[i + 2] ?? "";
     legLine = legLine.replace(/\s+end\s*$/i, "").trim();
 
@@ -60,24 +59,43 @@ function parseDict(src: string): ParsedDict {
     const n = Math.min(triggers.length, unis.length, legs.length);
     for (let k = 0; k < n; k++) {
       const t = triggers[k];
-      // Only register the first occurrence so earlier blocks win on conflict.
-      if (!unicode.has(t)) unicode.set(t, unis[k]);
-      if (!legacy.has(t)) legacy.set(t, legs[k]);
+      const u = unis[k];
+      const l = legs[k];
+      // Dict A: Singlish → Unicode / Legacy (first occurrence wins)
+      if (!unicode.has(t)) unicode.set(t, u);
+      if (!legacy.has(t)) legacy.set(t, l);
+      // Dict B: Unicode → Legacy
+      if (u && !unicodeToLegacy.has(u)) unicodeToLegacy.set(u, l);
     }
 
-    // Skip past consumed lines.
     i += 2;
   }
 
-  let maxKeyLen = 1;
-  for (const k of unicode.keys()) if (k.length > maxKeyLen) maxKeyLen = k.length;
+  // Merge Dict B into the legacy lookup so the greedy engine can resolve
+  // either Singlish OR raw Unicode in a single pass.
+  for (const [u, l] of unicodeToLegacy) {
+    if (!legacy.has(u)) legacy.set(u, l);
+  }
 
-  return { unicode, legacy, maxKeyLen };
+  let maxKeyLenUnicode = 1;
+  for (const k of unicode.keys()) if (k.length > maxKeyLenUnicode) maxKeyLenUnicode = k.length;
+  let maxKeyLenLegacy = 1;
+  for (const k of legacy.keys()) if (k.length > maxKeyLenLegacy) maxKeyLenLegacy = k.length;
+
+  return { unicode, legacy, unicodeToLegacy, maxKeyLenUnicode, maxKeyLenLegacy };
 }
 
 const DICT: ParsedDict = parseDict(DICT_RAW as unknown as string);
 
 // ─── Greedy match engine ───────────────────────────────────────────────────
+//
+// Walks the input left-to-right, trying the longest possible key first.
+// Any character not found in the table is passed through unchanged — this
+// is what makes mixed Singlish + Sinhala-Unicode input "just work":
+//   - Unicode mode: Singlish triggers convert; existing Sinhala chars are
+//     never in the singlish table, so they fall through verbatim.
+//   - Legacy mode:  the table contains BOTH Singlish→Legacy and
+//     Unicode→Legacy, so both kinds of input collapse to FM legacy glyphs.
 
 function convert(input: string, table: Map<string, string>, maxLen: number): string {
   let out = "";
@@ -85,7 +103,6 @@ function convert(input: string, table: Map<string, string>, maxLen: number): str
   const n = input.length;
 
   while (i < n) {
-    // Try the longest possible window first, shrinking down to 1.
     const upper = Math.min(maxLen, n - i);
     let matched = false;
     for (let len = upper; len >= 1; len--) {
@@ -99,7 +116,6 @@ function convert(input: string, table: Map<string, string>, maxLen: number): str
       }
     }
     if (!matched) {
-      // Pass character through unchanged (spaces, punctuation, newlines, …).
       out += input[i];
       i += 1;
     }
@@ -111,12 +127,13 @@ function convert(input: string, table: Map<string, string>, maxLen: number): str
 // ─── Public API (signature preserved for existing UI) ──────────────────────
 
 export function singlishToUnicode(text: string): string {
-  return convert(text, DICT.unicode, DICT.maxKeyLen);
+  return convert(text, DICT.unicode, DICT.maxKeyLenUnicode);
 }
 
 export function singlishToLegacy(text: string): string {
-  return convert(text, DICT.legacy, DICT.maxKeyLen);
+  return convert(text, DICT.legacy, DICT.maxKeyLenLegacy);
 }
+
 
 export function processConversion(input: string, mode: ConversionMode): string {
   if (!input) return "";
