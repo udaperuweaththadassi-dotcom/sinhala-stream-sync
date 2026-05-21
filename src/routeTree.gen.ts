@@ -18,6 +18,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MSessionIdRouteImport } from './routes/m.$sessionId'
+import { Route as ApiSinhalaLearnRouteImport } from './routes/api/sinhala/learn'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -64,6 +65,11 @@ const MSessionIdRoute = MSessionIdRouteImport.update({
   path: '/m/$sessionId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSinhalaLearnRoute = ApiSinhalaLearnRouteImport.update({
+  id: '/api/sinhala/learn',
+  path: '/api/sinhala/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/m/$sessionId': typeof MSessionIdRoute
+  '/api/sinhala/learn': typeof ApiSinhalaLearnRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/m/$sessionId': typeof MSessionIdRoute
+  '/api/sinhala/learn': typeof ApiSinhalaLearnRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/m/$sessionId': typeof MSessionIdRoute
+  '/api/sinhala/learn': typeof ApiSinhalaLearnRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/m/$sessionId'
+    | '/api/sinhala/learn'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/m/$sessionId'
+    | '/api/sinhala/learn'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/m/$sessionId'
+    | '/api/sinhala/learn'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   MSessionIdRoute: typeof MSessionIdRoute
+  ApiSinhalaLearnRoute: typeof ApiSinhalaLearnRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MSessionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/sinhala/learn': {
+      id: '/api/sinhala/learn'
+      path: '/api/sinhala/learn'
+      fullPath: '/api/sinhala/learn'
+      preLoaderRoute: typeof ApiSinhalaLearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   MSessionIdRoute: MSessionIdRoute,
+  ApiSinhalaLearnRoute: ApiSinhalaLearnRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
