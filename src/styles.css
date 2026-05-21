@@ -2,6 +2,18 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "FMAbhayaCustom";
+  src: url("/fonts/FMAbhaya.ttf") format("truetype");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-fm-legacy {
+  font-family: "FMAbhayaCustom", serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
