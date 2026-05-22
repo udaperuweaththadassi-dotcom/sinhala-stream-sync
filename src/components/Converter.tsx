@@ -18,6 +18,7 @@ export function Converter() {
   const { user } = useAuth();
   const [input, setInput] = useState("");
   const [linked, setLinked] = useState(false);
+  const [kbOpen, setKbOpen] = useState(false);
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
 
   const output = useMemo(() => processConversion(input, mode), [input, mode]);
