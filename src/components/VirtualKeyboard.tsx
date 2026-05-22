@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import { ArrowLeft, GripHorizontal, X } from "lucide-react";
 import { getVowels, getConsonantBlocks, type UnicodeBlock } from "@/lib/sinhala";
 
