@@ -87,6 +87,33 @@ function parseDict(src: string): ParsedDict {
 
 const DICT: ParsedDict = parseDict(DICT_RAW as unknown as string);
 
+// ─── Keyboard helpers ──────────────────────────────────────────────────────
+export interface UnicodeBlock { base: string; variants: string[]; }
+
+function buildUnicodeBlocks(src: string): UnicodeBlock[] {
+  const blocks: UnicodeBlock[] = [];
+  const lines = src.replace(/\r\n?/g, "\n").split("\n").map((l) => l.trim()).filter(Boolean);
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].indexOf(".start") === -1) continue;
+    const unis = (lines[i + 1] ?? "").split(/\s+/).filter(Boolean);
+    if (unis.length) blocks.push({ base: unis[0], variants: unis });
+    i += 2;
+  }
+  return blocks;
+}
+
+const UNICODE_BLOCKS = buildUnicodeBlocks(DICT_RAW as unknown as string);
+
+/** 18 vowels (first block). */
+export function getVowels(): string[] {
+  return (UNICODE_BLOCKS[0]?.variants ?? []).slice(0, 18);
+}
+
+/** Consonant blocks (everything after the vowels block). */
+export function getConsonantBlocks(): UnicodeBlock[] {
+  return UNICODE_BLOCKS.slice(1);
+}
+
 // ─── Greedy match engine ───────────────────────────────────────────────────
 //
 // Walks the input left-to-right, trying the longest possible key first.

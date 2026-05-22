@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Clipboard, Copy, Eraser, Radio } from "lucide-react";
+import { Clipboard, Copy, Eraser, Keyboard as KeyboardIcon, Radio } from "lucide-react";
+import { VirtualKeyboard } from "./VirtualKeyboard";
 import { SmartLearningEngine } from "@/lib/smartEngine";
 import { findSpellIssues, processConversion } from "@/lib/sinhala";
 import { useApp, pushHistory } from "@/lib/app-context";
@@ -17,6 +18,7 @@ export function Converter() {
   const { user } = useAuth();
   const [input, setInput] = useState("");
   const [linked, setLinked] = useState(false);
+  const [kbOpen, setKbOpen] = useState(false);
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
 
   const output = useMemo(() => processConversion(input, mode), [input, mode]);
@@ -145,6 +147,23 @@ export function Converter() {
           )}
         </div>
       </div>
+
+      <div className="flex justify-center">
+        <button
+          onClick={() => setKbOpen((v) => !v)}
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--neon-cyan)] text-sm hover:bg-accent/30 transition"
+          style={{ boxShadow: kbOpen ? "0 0 18px color-mix(in oklab, var(--neon-cyan) 60%, transparent)" : undefined }}
+        >
+          <KeyboardIcon className="w-4 h-4" />
+          {kbOpen ? "Hide Keyboard" : "Show Sinhala Keyboard"}
+        </button>
+      </div>
+
+      <VirtualKeyboard
+        open={kbOpen}
+        onClose={() => setKbOpen(false)}
+        onInsert={(ch) => setInput((prev) => prev + ch)}
+      />
     </section>
   );
 }
