@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Clipboard, Copy, Eraser, Radio } from "lucide-react";
+import { Clipboard, Copy, Eraser, Keyboard as KeyboardIcon, Radio } from "lucide-react";
+import { VirtualKeyboard } from "./VirtualKeyboard";
 import { SmartLearningEngine } from "@/lib/smartEngine";
 import { findSpellIssues, processConversion } from "@/lib/sinhala";
 import { useApp, pushHistory } from "@/lib/app-context";
