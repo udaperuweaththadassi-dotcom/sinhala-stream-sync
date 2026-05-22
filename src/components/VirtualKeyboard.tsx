@@ -23,6 +23,7 @@ export function VirtualKeyboard({
 }) {
   const [tab, setTab] = useState<Tab>("vowels");
   const [activeBlock, setActiveBlock] = useState<UnicodeBlock | null>(null);
+  const dragControls = useDragControls();
 
   const vowels = useMemo(() => getVowels(), []);
   const consonants = useMemo(() => getConsonantBlocks(), []);
