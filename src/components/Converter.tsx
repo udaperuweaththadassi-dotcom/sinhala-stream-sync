@@ -147,6 +147,23 @@ export function Converter() {
           )}
         </div>
       </div>
+
+      <div className="flex justify-center">
+        <button
+          onClick={() => setKbOpen((v) => !v)}
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--neon-cyan)] text-sm hover:bg-accent/30 transition"
+          style={{ boxShadow: kbOpen ? "0 0 18px color-mix(in oklab, var(--neon-cyan) 60%, transparent)" : undefined }}
+        >
+          <KeyboardIcon className="w-4 h-4" />
+          {kbOpen ? "Hide Keyboard" : "Show Sinhala Keyboard"}
+        </button>
+      </div>
+
+      <VirtualKeyboard
+        open={kbOpen}
+        onClose={() => setKbOpen(false)}
+        onInsert={(ch) => setInput((prev) => prev + ch)}
+      />
     </section>
   );
 }
