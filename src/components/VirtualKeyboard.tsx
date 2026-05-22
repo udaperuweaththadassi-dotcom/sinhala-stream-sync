@@ -51,15 +51,19 @@ export function VirtualKeyboard({
   return (
     <motion.div
       drag
+      dragListener={false}
+      dragControls={dragControls}
       dragMomentum={false}
-      dragHandle=".vk-drag-handle"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="fixed left-1/2 bottom-6 z-50 -translate-x-1/2 w-[min(720px,95vw)] rounded-2xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl"
       style={{ boxShadow: "0 0 30px color-mix(in oklab, var(--neon-purple) 35%, transparent)" }}
     >
       {/* Drag handle */}
-      <div className="vk-drag-handle flex items-center justify-between px-3 py-2 cursor-grab active:cursor-grabbing border-b border-border/60">
+      <div
+        onPointerDown={(e) => dragControls.start(e)}
+        className="flex items-center justify-between px-3 py-2 cursor-grab active:cursor-grabbing border-b border-border/60 select-none touch-none"
+      >
         <div className="flex items-center gap-2 text-muted-foreground">
           <GripHorizontal className="w-4 h-4" />
           <span className="text-xs uppercase tracking-widest">Sinhala Keyboard</span>
