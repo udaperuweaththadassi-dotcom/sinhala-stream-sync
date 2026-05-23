@@ -12,8 +12,8 @@ import {
 import appCss from "../styles.css?url";
 import { AppProvider } from "@/lib/app-context";
 import { AuthProvider } from "@/lib/auth-context";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { EdgeBar, EdgeDock } from "@/components/EdgeBar";
+import { FeedbackFooter } from "@/components/FeedbackFooter";
 
 function NotFoundComponent() {
   return (
@@ -95,9 +95,10 @@ function Layout({ children }: { children: React.ReactNode }) {
   const isMobile = path.startsWith("/m/");
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1">{children}</main>
-      {!isMobile && <Footer />}
+      {!isMobile && <EdgeBar />}
+      {!isMobile && <EdgeDock />}
+      <main className={`flex-1 ${!isMobile ? "sm:pl-20" : ""}`}>{children}</main>
+      {!isMobile && <FeedbackFooter />}
     </div>
   );
 }
