@@ -87,9 +87,12 @@ export function Converter() {
       <AccountPanel />
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Mode</p>
-          <p className="font-display text-lg">{mode === "unicode" ? "Unicode (Modern)" : "Legacy FM Font"}</p>
+        <div className="flex items-center gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Mode</p>
+            <p className="font-display text-lg">{mode === "unicode" ? "Unicode (Modern)" : "Legacy FM Font"}</p>
+          </div>
+          <ModeToggle />
         </div>
         <div className="flex items-center gap-2">
           <HistoryPanel onRestore={(t) => setInput(t)} />
