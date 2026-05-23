@@ -13,7 +13,9 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as LicenseRouteImport } from './routes/license'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DownloadRouteImport } from './routes/download'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -40,9 +42,19 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LicenseRoute = LicenseRouteImport.update({
+  id: '/license',
+  path: '/license',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadRoute = DownloadRouteImport.update({
+  id: '/download',
+  path: '/download',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -75,7 +87,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
+  '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -87,7 +101,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
+  '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -100,7 +116,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
+  '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -114,7 +132,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/download'
     | '/faq'
+    | '/license'
     | '/login'
     | '/privacy'
     | '/sitemap.xml'
@@ -126,7 +146,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/download'
     | '/faq'
+    | '/license'
     | '/login'
     | '/privacy'
     | '/sitemap.xml'
@@ -138,7 +160,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/download'
     | '/faq'
+    | '/license'
     | '/login'
     | '/privacy'
     | '/sitemap.xml'
@@ -151,7 +175,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DownloadRoute: typeof DownloadRoute
   FaqRoute: typeof FaqRoute
+  LicenseRoute: typeof LicenseRoute
   LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -190,11 +216,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/license': {
+      id: '/license'
+      path: '/license'
+      fullPath: '/license'
+      preLoaderRoute: typeof LicenseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/download': {
+      id: '/download'
+      path: '/download'
+      fullPath: '/download'
+      preLoaderRoute: typeof DownloadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -239,7 +279,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DownloadRoute: DownloadRoute,
   FaqRoute: FaqRoute,
+  LicenseRoute: LicenseRoute,
   LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
@@ -250,13 +292,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

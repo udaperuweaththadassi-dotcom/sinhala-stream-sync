@@ -17,26 +17,38 @@ export type Database = {
       licenses: {
         Row: {
           created_at: string | null
-          email: string
+          email: string | null
+          expires_at: string | null
           expiry_date: string | null
           id: string
-          license_key: string
+          is_active: boolean
+          is_ad_key: boolean
+          key_code: string | null
+          license_key: string | null
           machine_id: string | null
         }
         Insert: {
           created_at?: string | null
-          email: string
+          email?: string | null
+          expires_at?: string | null
           expiry_date?: string | null
           id?: string
-          license_key: string
+          is_active?: boolean
+          is_ad_key?: boolean
+          key_code?: string | null
+          license_key?: string | null
           machine_id?: string | null
         }
         Update: {
           created_at?: string | null
-          email?: string
+          email?: string | null
+          expires_at?: string | null
           expiry_date?: string | null
           id?: string
-          license_key?: string
+          is_active?: boolean
+          is_ad_key?: boolean
+          key_code?: string | null
+          license_key?: string | null
           machine_id?: string | null
         }
         Relationships: []

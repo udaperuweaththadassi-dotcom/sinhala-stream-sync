@@ -87,9 +87,12 @@ export function Converter() {
       <AccountPanel />
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Mode</p>
-          <p className="font-display text-lg">{mode === "unicode" ? "Unicode (Modern)" : "Legacy FM Font"}</p>
+        <div className="flex items-center gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Mode</p>
+            <p className="font-display text-lg">{mode === "unicode" ? "Unicode (Modern)" : "Legacy FM Font"}</p>
+          </div>
+          <ModeToggle />
         </div>
         <div className="flex items-center gap-2">
           <HistoryPanel onRestore={(t) => setInput(t)} />
@@ -165,5 +168,30 @@ export function Converter() {
         onInsert={(ch) => setInput((prev) => prev + ch)}
       />
     </section>
+  );
+}
+
+function ModeToggle() {
+  const { mode, setMode } = useApp();
+  return (
+    <div
+      role="switch"
+      aria-checked={mode === "legacy"}
+      tabIndex={0}
+      onClick={() => setMode(mode === "unicode" ? "legacy" : "unicode")}
+      onKeyDown={(e) => (e.key === " " || e.key === "Enter") && setMode(mode === "unicode" ? "legacy" : "unicode")}
+      className="relative cursor-pointer rounded-full border border-border bg-secondary px-1 py-1 flex items-center w-[150px]"
+    >
+      <span
+        className="absolute top-1 bottom-1 w-[71px] rounded-full transition-all"
+        style={{
+          left: mode === "unicode" ? 4 : 75,
+          background: "linear-gradient(135deg, var(--neon-cyan), var(--neon-purple))",
+          boxShadow: "0 0 12px color-mix(in oklab, var(--neon-cyan) 50%, transparent)",
+        }}
+      />
+      <span className={`relative z-10 w-[71px] text-center text-[11px] font-semibold ${mode === "unicode" ? "text-primary-foreground" : "text-muted-foreground"}`}>Unicode</span>
+      <span className={`relative z-10 w-[71px] text-center text-[11px] font-semibold ${mode === "legacy" ? "text-primary-foreground" : "text-muted-foreground"}`}>Legacy</span>
+    </div>
   );
 }
