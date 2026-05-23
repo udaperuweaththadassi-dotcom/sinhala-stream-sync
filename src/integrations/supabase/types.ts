@@ -14,7 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      licenses: {
+        Row: {
+          created_at: string | null
+          email: string
+          expiry_date: string | null
+          id: string
+          license_key: string
+          machine_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          expiry_date?: string | null
+          id?: string
+          license_key: string
+          machine_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          expiry_date?: string | null
+          id?: string
+          license_key?: string
+          machine_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
