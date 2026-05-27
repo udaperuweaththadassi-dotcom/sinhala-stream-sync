@@ -104,9 +104,14 @@ function buildUnicodeBlocks(src: string): UnicodeBlock[] {
 
 const UNICODE_BLOCKS = buildUnicodeBlocks(DICT_RAW as unknown as string);
 
-/** 18 vowels (first block). */
+/** 18 vowels (first block). Positions 9 & 10 are forced to ඍ / ඎ. */
 export function getVowels(): string[] {
-  return (UNICODE_BLOCKS[0]?.variants ?? []).slice(0, 18);
+  const base = (UNICODE_BLOCKS[0]?.variants ?? []).slice(0, 18);
+  // Pad to 18 just in case
+  while (base.length < 18) base.push("");
+  base[8] = "ඍ";
+  base[9] = "ඎ";
+  return base;
 }
 
 /** Consonant blocks (everything after the vowels block). */

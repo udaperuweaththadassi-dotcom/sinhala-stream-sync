@@ -12,6 +12,9 @@ const EMOJIS = [
   "⚽","🏏","🎵","📱","💻","🚗","✈️","🏠","🇱🇰","🌺","🌸","🪔","🛕","📿","🙇",
 ];
 
+// Fixed body height so the keyboard never resizes between tabs.
+const BODY_HEIGHT = 360;
+
 export function VirtualKeyboard({
   open,
   onClose,
@@ -28,19 +31,7 @@ export function VirtualKeyboard({
   const vowels = useMemo(() => getVowels(), []);
   const consonants = useMemo(() => getConsonantBlocks(), []);
 
-  // Layout: rows 1–5 × 6 = 30, row 6 = 4, row 7 = 6  → 40 base consonants
-  const consonantLayout = useMemo(() => {
-    const c = consonants.slice(0, 40);
-    const rows: UnicodeBlock[][] = [];
-    let i = 0;
-    for (let r = 0; r < 5; r++) { rows.push(c.slice(i, i + 6)); i += 6; }
-    rows.push(c.slice(i, i + 4)); i += 4;
-    rows.push(c.slice(i, i + 6));
-    return rows;
-  }, [consonants]);
-
   const handleKey = (ch: string) => onInsert(ch);
-
   const handleSubKey = (ch: string) => {
     onInsert(ch);
     setActiveBlock(null);
@@ -56,13 +47,13 @@ export function VirtualKeyboard({
       dragMomentum={false}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed left-1/2 bottom-6 z-50 -translate-x-1/2 w-[min(720px,95vw)] rounded-2xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl"
+      className="fixed left-1/2 bottom-6 z-50 -translate-x-1/2 w-[min(720px,95vw)] rounded-2xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl flex flex-col"
       style={{ boxShadow: "0 0 30px color-mix(in oklab, var(--neon-purple) 35%, transparent)" }}
     >
       {/* Drag handle */}
       <div
         onPointerDown={(e) => dragControls.start(e)}
-        className="flex items-center justify-between px-3 py-2 cursor-grab active:cursor-grabbing border-b border-border/60 select-none touch-none"
+        className="flex items-center justify-between px-3 py-2 cursor-grab active:cursor-grabbing border-b border-border/60 select-none touch-none shrink-0"
       >
         <div className="flex items-center gap-2 text-muted-foreground">
           <GripHorizontal className="w-4 h-4" />
@@ -74,7 +65,7 @@ export function VirtualKeyboard({
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 px-4 pt-3">
+      <div className="flex items-center gap-2 px-4 pt-3 shrink-0">
         {(["vowels", "consonants", "emojis"] as Tab[]).map((t) => (
           <button
             key={t}
@@ -87,10 +78,12 @@ export function VirtualKeyboard({
         ))}
       </div>
 
-      {/* Body */}
-      <div className="p-4">
+      {/* Body — fixed height, scrollable */}
+      <div
+        className="px-4 py-3 overflow-y-auto vk-scroll"
+        style={{ height: BODY_HEIGHT }}
+      >
         <AnimatePresence mode="wait">
-          {/* Sub-character view */}
           {tab === "consonants" && activeBlock ? (
             <motion.div
               key="sub"
@@ -107,33 +100,22 @@ export function VirtualKeyboard({
               <p className="text-xs text-muted-foreground mb-2">
                 Variations of <span className="text-foreground font-medium">{activeBlock.base}</span>
               </p>
-              <Grid columns={6}>
-                {activeBlock.variants.map((ch, i) => (
-                  <Key key={i} ch={ch} onPress={handleSubKey} />
-                ))}
-              </Grid>
+              <KeyGrid items={activeBlock.variants} onPress={handleSubKey} />
             </motion.div>
           ) : tab === "vowels" ? (
             <motion.div key="vow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <Grid columns={6}>
-                {vowels.map((ch, i) => <Key key={i} ch={ch} onPress={handleKey} />)}
-              </Grid>
+              <KeyGrid items={vowels} onPress={handleKey} />
             </motion.div>
           ) : tab === "consonants" ? (
-            <motion.div key="con" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-2">
-              {consonantLayout.map((row, ri) => (
-                <Grid key={ri} columns={row.length}>
-                  {row.map((b, i) => (
-                    <Key key={i} ch={b.base} onPress={() => setActiveBlock(b)} />
-                  ))}
-                </Grid>
-              ))}
+            <motion.div key="con" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              <KeyGrid
+                items={consonants.map((b) => b.base)}
+                onPress={(_, i) => setActiveBlock(consonants[i])}
+              />
             </motion.div>
           ) : (
             <motion.div key="emo" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <Grid columns={8}>
-                {EMOJIS.map((ch, i) => <Key key={i} ch={ch} onPress={handleKey} />)}
-              </Grid>
+              <KeyGrid items={EMOJIS} onPress={handleKey} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -142,24 +124,27 @@ export function VirtualKeyboard({
   );
 }
 
-function Grid({ columns, children }: { columns: number; children: React.ReactNode }) {
+function KeyGrid({
+  items,
+  onPress,
+}: {
+  items: string[];
+  onPress: (ch: string, index: number) => void;
+}) {
   return (
-    <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
-      {children}
+    <div className="flex flex-wrap gap-2 justify-center">
+      {items.map((ch, i) => (
+        <motion.button
+          key={i}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 500, damping: 18 }}
+          className="vk-key"
+          onClick={() => onPress(ch, i)}
+          type="button"
+        >
+          {ch}
+        </motion.button>
+      ))}
     </div>
-  );
-}
-
-function Key({ ch, onPress }: { ch: string; onPress: (ch: string) => void }) {
-  return (
-    <motion.button
-      whileTap={{ scale: 0.9 }}
-      transition={{ type: "spring", stiffness: 500, damping: 18 }}
-      className="vk-key"
-      onClick={() => onPress(ch)}
-      type="button"
-    >
-      {ch}
-    </motion.button>
   );
 }
